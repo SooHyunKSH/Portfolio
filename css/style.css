@@ -398,13 +398,13 @@ html {
 /* skill area */
 .intro_text {
   position: relative;
-  font-family: "Noto Sans KR", sans-serif;
+  display: inline-block;
   font-size: 4rem;
   top: 20%;
   left: 10%;
 }
 
-.intro_text .ani_text {
+.ani_text {
   display: inline-block;
   color: #f4cf49;
   animation: textAni 0.6s infinite alternate;
@@ -419,25 +419,62 @@ html {
   }
 }
 
-.skillbox {
+.ani_text_2 {
+  display: inline-block;
+  animation: textAni2 0.4s infinite alternate;
+}
+
+@keyframes textAni2 {
+  0% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.info_box {
+  position: absolute;
+  right: 5%;
+}
+
+.info_box ul li {
   position: relative;
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.info_box ul li div {
+  display: inline-block;
+  float: left;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-left: 2rem;
+}
+
+.info_box ul li div.date {
+  position: relative;
+  margin-left: 0;
+  min-width: 17rem;
+  color: #717171;
+}
+
+.info_box ul li .text span {
+  display: block;
+  font-size: 1.8rem;
+  color: #8c8c8c;
 }
 
 .skillbox ul {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  right: 5%;
   overflow: hidden;
 }
 
 .skillbox ul li {
+  float: left;
   text-align: center;
   margin-right: 5rem;
 }
