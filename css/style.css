@@ -9,6 +9,7 @@ html {
   position: relative;
 }
 
+/* header area */
 #header {
   position: fixed;
   width: 100%;
@@ -24,6 +25,7 @@ html {
 }
 
 #gnb li {
+  position: relative;
   float: left;
   padding: 5rem 3rem;
   box-sizing: border-box;
@@ -58,6 +60,7 @@ html {
   background: url("../img/menu.png") no-repeat center center;
   background-size: 100%;
   cursor: pointer;
+  z-index: 5000;
 }
 
 #header.on {
@@ -68,6 +71,7 @@ html {
   padding: 4rem 2rem;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.5);
+  transition: right 0.5s;
 }
 
 #header.on #gnb {
@@ -85,6 +89,9 @@ html {
   color: #fff;
 }
 
+/* section area */
+
+/* welcome area */
 .title_box {
   position: absolute;
   width: 100%;
@@ -114,7 +121,7 @@ html {
 }
 
 .sub_title {
-  position: absolute;
+  position: fixed;
   transform: rotate(90deg);
   top: 17%;
   left: -25px;
@@ -126,8 +133,69 @@ html {
   letter-spacing: -1px;
 }
 
-/* work 영역 공통 */
+.scroll_down {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 2px solid #000;
+  border-radius: 0.6rem;
+  z-index: 1;
+}
 
+.scroll_down span {
+  position: absolute;
+  top: -2rem;
+  width: 6rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-left: -3.5rem;
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.scroll_down .line {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.6rem;
+  width: 0.3rem;
+  height: 0.8rem;
+  border-radius: 20%%;
+  background: #000;
+  animation: lineAni 1s ease-out infinite;
+}
+
+@keyframes lineAni {
+  0% {
+    top: 0.4rem;
+  }
+  50% {
+    top: 0.7rem;
+  }
+  100% {
+    top: 0.4rem;
+  }
+}
+
+/* work area */
+.click_bg {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2;
+  z-index: 1;
+}
+
+.click_bg.on {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 .portfolio_wrap {
   position: relative;
   width: 950px;
@@ -144,23 +212,47 @@ html {
 
 .portfolio_wrap ul .site_box {
   position: relative;
-  width: 30%;
-  height: 300px;
+  width: 32%;
+  height: 320px;
   border: 1px solid #e0e0e0;
   border-radius: 15px;
   margin-bottom: 5rem;
   overflow: hidden;
 }
 
+.portfolio_wrap ul .site_box:hover .site_img img {
+  transform: scale(1.2);
+}
+
 .portfolio_wrap ul .site_box .site_img {
+  position: relative;
   width: 100%;
   height: 210px;
+  overflow: hidden;
 }
 
 .portfolio_wrap ul .site_box .site_img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.3s;
+}
+
+.portfolio_wrap ul .site_box .site_img span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 210px;
+  color: #fff;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.portfolio_wrap ul .site_box:hover .site_img span {
+  opacity: 1;
 }
 
 .portfolio_wrap ul .site_box .site_text {
@@ -193,6 +285,7 @@ html {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  z-index: 900;
 }
 
 .work_wrap.on {
@@ -298,10 +391,86 @@ html {
   object-fit: cover;
 }
 
+/* skill area */
+.intro_text {
+  position: relative;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 4rem;
+  top: 20%;
+  left: 10%;
+}
+
+.intro_text .ani_text {
+  display: inline-block;
+  color: #f4cf49;
+  animation: textAni 0.6s infinite alternate;
+}
+
+@keyframes textAni {
+  0% {
+    transform: rotateZ(3deg);
+  }
+  100% {
+    transform: rotateZ(-3deg);
+  }
+}
+
+.skillbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.skillbox ul {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  overflow: hidden;
+}
+
+.skillbox ul li {
+  text-align: center;
+  margin-right: 5rem;
+}
+
+.skillbox ul li:last-of-type {
+  margin-right: 0;
+}
+
+.skillbox ul li .level {
+  width: 18rem;
+  height: 18rem;
+  font-size: 1.8rem;
+  border: 2px solid orange;
+  border-radius: 100%;
+  line-height: 18rem;
+  overflow: hidden;
+  background: url("../img/wave.png") no-repeat;
+  animation: wave 2000ms infinite linear;
+}
+
+@keyframes wave {
+  from {
+  }
+}
+
+.skillbox ul li .skill_txt {
+  margin-top: 2rem;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+/* contect area */
+
 .contact_box {
   position: relative;
-  top: 5rem;
-  left: 3rem;
+  top: 20%;
+  left: 10%;
 }
 
 .contact_box h2 {
@@ -313,4 +482,10 @@ html {
 
 .contact_box h2 .highlight {
   background: linear-gradient(to top, #f3d361 50%, transparent 40%);
+}
+
+@media screen and (max-width: 990px) {
+  .gnb_btn {
+    display: block;
+  }
 }
