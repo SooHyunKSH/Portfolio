@@ -1,12 +1,15 @@
 @charset "UTF-8";
-/* font-family: 'Prata', serif; */
 body,
 html {
   background-color: #fff;
-  font-size: 10px;
 }
 .section {
   position: relative;
+}
+
+h1,
+h2 {
+  font-family: "Chonburi", cursive;
 }
 
 /* header area */
@@ -21,30 +24,48 @@ html {
   display: inline-block;
   height: 100%;
   overflow: hidden;
-  margin-right: 4rem;
+  margin-right: 40px;
 }
 
 #gnb li {
   position: relative;
   float: left;
-  padding: 5rem 3rem;
+  padding: 50px 30px;
   box-sizing: border-box;
 }
 
+#gnb li::after {
+  content: "";
+  display: none;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  background-color: #f3d361;
+  opacity: 0.5;
+}
+
+#gnb li.on::after {
+  display: block;
+}
+
 #gnb li a {
-  font-size: 1.8rem;
+  font-size: 18px;
   color: #000;
   font-family: "Chonburi", cursive;
 }
 
 .gnb_btn_close {
   position: absolute;
-  display: none;
-  right: 2rem;
-  top: 2rem;
-  width: 2rem;
-  height: 2rem;
-  padding: 1rem;
+  display: block;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
   background: url("../img/close_btn.png") no-repeat center center;
   background-size: 60%;
   cursor: pointer;
@@ -53,11 +74,11 @@ html {
 .gnb_btn {
   position: fixed;
   display: none;
-  right: 2rem;
-  top: 2rem;
-  width: 2rem;
-  height: 2rem;
-  padding: 1rem;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
   background: url("../img/menu.png") no-repeat center center;
   background-size: 100%;
   cursor: pointer;
@@ -65,11 +86,11 @@ html {
 }
 
 #header.on {
-  width: 40rem;
+  width: 400px;
   height: 100%;
-  right: -40rem;
+  right: -400px;
   text-align: left;
-  padding: 4rem 2rem;
+  padding: 40px 20px;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.5);
   transition: right 0.5s;
@@ -83,7 +104,7 @@ html {
 #header.on #gnb li {
   float: none;
   width: 100%;
-  padding: 3rem;
+  padding: 30px;
 }
 
 #header.on #gnb li a {
@@ -103,21 +124,21 @@ html {
 }
 
 .title_box h1 {
-  font-family: "Chonburi", cursive;
+  position: relative;
   font-size: 100px;
   text-align: center;
   color: #1e1c1d;
   margin-bottom: 10px;
 }
 
-.title_box h2 {
+.title_box h3 {
   font-size: 40px;
   text-align: center;
   color: #1e1c1d;
   font-weight: 500;
 }
 
-.title_box h2 .highlight {
+.title_box h3 .highlight {
   background: linear-gradient(to top, #f3d361 50%, transparent 40%);
 }
 
@@ -137,24 +158,24 @@ html {
 
 .scroll_down {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 1.5rem;
-  height: 2.5rem;
+  width: 15px;
+  height: 25px;
   border: 2px solid #000;
-  border-radius: 0.6rem;
+  border-radius: 6px;
   z-index: 1;
 }
 
 .scroll_down span {
   position: absolute;
-  top: -2rem;
-  width: 6rem;
+  top: -20px;
+  width: 60px;
   font-weight: 700;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  margin-left: -3.5rem;
+  font-size: 14px;
+  line-height: 14px;
+  margin-left: -35px;
   color: #000;
   text-align: center;
   white-space: nowrap;
@@ -162,10 +183,10 @@ html {
 
 .scroll_down .line {
   position: absolute;
-  top: 0.4rem;
-  left: 0.6rem;
-  width: 0.3rem;
-  height: 0.8rem;
+  top: 4px;
+  left: 6px;
+  width: 3px;
+  height: 8px;
   border-radius: 20%;
   background: #000;
   animation: lineAni 1s ease-out infinite;
@@ -173,13 +194,13 @@ html {
 
 @keyframes lineAni {
   0% {
-    top: 0.4rem;
+    top: 4px;
   }
   50% {
-    top: 0.7rem;
+    top: 7px;
   }
   100% {
-    top: 0.4rem;
+    top: 4px;
   }
 }
 
@@ -208,16 +229,15 @@ html {
 
 .portfolio_wrap ul {
   display: grid;
-  justify-content: center;
-  align-content: center;
-  grid-template-columns: repeat(3, 33%);
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
 .portfolio_wrap ul .site_box {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 100%;
   border: 1px solid #e0e0e0;
   border-radius: 15px;
   overflow: hidden;
@@ -230,7 +250,7 @@ html {
 .portfolio_wrap ul .site_box .site_img {
   position: relative;
   width: 100%;
-  height: 210px;
+  height: 60%;
   overflow: hidden;
 }
 
@@ -247,7 +267,7 @@ html {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 18px;
   line-height: 210px;
   color: #fff;
   opacity: 0;
@@ -260,22 +280,23 @@ html {
 
 .portfolio_wrap ul .site_box .site_text {
   width: 100%;
-  padding: 2rem;
+  padding: 20px;
+  height: 40%;
   box-sizing: border-box;
 }
 
 .portfolio_wrap ul .site_box .site_text p {
-  font-size: 1.4rem;
+  font-size: 14px;
   text-align: center;
   color: #8c8c8c;
-  line-height: 2.4rem;
+  line-height: 14px;
 }
 
 .portfolio_wrap ul .site_box .site_text p strong {
   font-family: "Chonburi", cursive;
   display: block;
-  font-size: 2.4rem;
-  line-height: 3rem;
+  font-size: 24px;
+  line-height: 30px;
   color: #222;
 }
 
@@ -315,43 +336,43 @@ html {
   position: relative;
   width: 35%;
   height: 100%;
-  padding: 5rem;
-  box-sizing: border-box;
 }
 
 .work_wrap .work_text .text_inner {
   position: absolute;
-  bottom: 5rem;
+  width: 100%;
+  bottom: 0;
+  padding: 50px;
+  box-sizing: border-box;
 }
 
 .work_wrap .work_text .text_inner .sub_text {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 1.8rem;
+  font-size: 18px;
 }
 
 .work_wrap .work_text .text_inner h3 {
-  font-size: 5rem;
-  margin-bottom: 3.5rem;
+  font-family: "Chonburi", cursive;
+  font-size: 40px;
+  margin-bottom: 35px;
 }
 
 .work_wrap .work_text .text_inner p {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 1.8rem;
+  font-size: 18px;
   line-height: 2;
 }
 
 .work_wrap .primary_color {
   display: block;
   overflow: hidden;
-  margin: 1.5rem 0 3rem;
+  margin: 15px 0 30px;
 }
 
 .work_wrap .primary_color li {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   border-radius: 100%;
   background: #000;
-  margin-right: 1rem;
+  margin-right: 10px;
   float: left;
 }
 
@@ -359,9 +380,9 @@ html {
   position: absolute;
   right: 0;
   top: 0;
-  width: 2rem;
-  height: 2rem;
-  padding: 1rem;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
   background: url("../img/close_btn.png") no-repeat center center;
   background-size: 60%;
   cursor: pointer;
@@ -369,7 +390,7 @@ html {
 
 .link_wrap {
   display: inline-block;
-  margin: 1.5rem 0;
+  margin: 15px 0;
 }
 
 .link_wrap > div {
@@ -378,15 +399,15 @@ html {
 
 .link_wrap .view_btn a {
   display: inline-block;
-  padding: 1rem 1.5rem;
-  font-size: 1.4rem;
+  padding: 10px 15px;
+  font-size: 14px;
   border: 1px solid #1e1c1d;
   color: #111;
 }
 
 .link_wrap .github {
-  width: 4rem;
-  margin-left: 1rem;
+  width: 40px;
+  margin-left: 10px;
 }
 
 .link_wrap .github img {
@@ -398,8 +419,9 @@ html {
 /* skill area */
 .intro_text {
   position: relative;
+  float: left;
   display: inline-block;
-  font-size: 4rem;
+  font-size: 40px;
   top: 20%;
   left: 10%;
 }
@@ -433,50 +455,54 @@ html {
   }
 }
 
-.info_box {
-  position: absolute;
-  right: 5%;
+.skill_wrap {
+  position: relative;
+  width: 800px;
+  float: right;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 25%;
 }
 
-.info_box ul li {
+.skill_wrap > ul {
+  margin-bottom: 100px;
+}
+
+.skill_wrap > ul > li {
   position: relative;
   overflow: hidden;
   font-weight: 400;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
-.info_box ul li div {
+.skill_wrap > ul > li > div {
   display: inline-block;
   float: left;
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  margin-left: 2rem;
+  font-size: 21px;
+  line-height: 29px;
+  margin-left: 20px;
 }
 
-.info_box ul li div.date {
+.skill_wrap > ul > li > div.date {
   position: relative;
   margin-left: 0;
-  min-width: 17rem;
+  min-width: 170px;
   color: #717171;
 }
 
-.info_box ul li .text span {
+.skill_wrap > ul > li .text span {
   display: block;
-  font-size: 1.8rem;
+  font-size: 18px;
   color: #8c8c8c;
 }
 
 .skillbox ul {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
 }
 
 .skillbox ul li {
-  float: left;
   text-align: center;
-  margin-right: 5rem;
 }
 
 .skillbox ul li:last-of-type {
@@ -484,39 +510,82 @@ html {
 }
 
 .skillbox ul li .level {
-  width: 18rem;
-  height: 18rem;
-  font-size: 1.8rem;
-  border: 2px solid orange;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  font-size: 18px;
+  border: 2px solid #000;
   border-radius: 100%;
-  line-height: 18rem;
+  line-height: 120px;
+  margin: 0 auto;
   overflow: hidden;
-  background: url("../img/wave.png") no-repeat;
-  animation: wave 2000ms infinite linear;
+}
+
+.skillbox ul li .level .wave {
+  position: absolute;
+  background: #0af;
+  width: 200px;
+  height: 200px;
+  right: -30px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  opacity: 0.4;
+  animation: wave 3000ms infinite linear;
+}
+
+.skillbox ul li .level .wave:nth-of-type(2) {
+  animation: wave 5000ms infinite linear;
+}
+
+.skillbox ul li .level .wave:nth-of-type(3) {
+  animation: wave 7000ms infinite linear;
+  background: yellow;
+  opacity: 0.1;
 }
 
 @keyframes wave {
   from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
   }
 }
 
+.skillbox ul li:nth-of-type(1) .level .wave {
+  bottom: -55%;
+}
+
+.skillbox ul li:nth-of-type(2) .level .wave {
+  bottom: -65%;
+}
+
+.skillbox ul li:nth-of-type(3) .level .wave {
+  bottom: -85%;
+}
+
+.skillbox ul li:nth-of-type(4) .level .wave {
+  bottom: -75%;
+}
+
 .skillbox ul li .skill_txt {
-  margin-top: 2rem;
-  font-size: 2rem;
-  line-height: 2rem;
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 20px;
 }
 
 /* contect area */
 
 .contact_box {
   position: relative;
-  top: 20%;
-  left: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .contact_box h2 {
-  font-size: 40px;
-  text-align: left;
+  font-size: 50px;
   color: #1e1c1d;
   font-weight: 500;
 }
@@ -525,8 +594,348 @@ html {
   background: linear-gradient(to top, #f3d361 50%, transparent 40%);
 }
 
+.contact_box .sub_text {
+  font-size: 21px;
+  line-height: 24px;
+  letter-spacing: -1px;
+  margin-top: 10px;
+}
+
+.contact_box .contact {
+  margin-top: 30px;
+}
+
+.contact_box .contact p {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+/* 반응형 */
+
+@media screen and (max-width: 1300px) {
+  .work_wrap {
+    width: 65%;
+    height: 80%;
+    border-radius: 5%;
+  }
+
+  .work_wrap .work_img {
+    width: 100%;
+    height: 60%;
+  }
+
+  .work_wrap .work_img img {
+    border-radius: 5% 5% 0 0;
+  }
+
+  .work_wrap .work_text {
+    width: 100%;
+    height: 40%;
+  }
+
+  .work_wrap .work_text .text_inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .work_wrap .primary_color {
+    margin: 15px 0 0;
+  }
+
+  .link_wrap .view_btn a {
+    font-size: 10px;
+  }
+
+  .link_wrap .github {
+    width: 30px;
+  }
+
+  .work_wrap .close_btn {
+    top: 60%;
+  }
+
+  .intro_text {
+    float: none;
+    display: block;
+  }
+
+  .skill_wrap {
+    float: none;
+    left: 10%;
+  }
+  .skill_wrap > ul {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .portfolio_wrap {
+    width: auto;
+  }
+  .portfolio_wrap ul {
+    width: 700px;
+    grid-gap: 10px;
+  }
+
+  .portfolio_wrap ul .site_box .site_text p strong {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
 @media screen and (max-width: 990px) {
   .gnb_btn {
     display: block;
+  }
+  .title_box h1 {
+    font-size: 65px;
+  }
+  .title_box h3 {
+    font-size: 24px;
+  }
+
+  .work_wrap {
+    width: 75%;
+    height: 65%;
+  }
+
+  .intro_text {
+    left: auto;
+    text-align: center;
+  }
+  .skill_wrap {
+    left: auto;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .work_wrap .work_text .text_inner .sub_text {
+    font-size: 14px;
+  }
+
+  .work_wrap .work_text .text_inner h3 {
+    font-size: 28px;
+  }
+
+  .work_wrap .work_text .text_inner p {
+    font-size: 14px;
+  }
+
+  .work_wrap .primary_color li {
+    width: 16px;
+    height: 16px;
+  }
+
+  .portfolio_wrap ul {
+    width: 500px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill_wrap {
+    width: 685px;
+  }
+  .skill_wrap > ul > li > div {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .gnb_btn {
+    background-size: 80%;
+  }
+
+  .title_box h1 {
+    font-size: 45px;
+  }
+
+  .work_wrap {
+    width: 90%;
+  }
+
+  .portfolio_wrap ul {
+    width: 400px;
+  }
+
+  .skill_wrap {
+    width: 520px;
+  }
+
+  .intro_text {
+    font-size: 30px;
+  }
+  .skillbox ul li .level {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  .skillbox ul li .level .wave {
+    width: 145px;
+    height: 145px;
+  }
+
+  .skill_wrap > ul > li > div.date {
+    font-size: 14px;
+    min-width: 100px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .fp-auto-height {
+    height: auto !important;
+  }
+
+  .fp-auto-height .fp-tableCell {
+    height: auto !important;
+  }
+
+  .gnb_btn {
+    background-size: 60%;
+    right: 5px;
+  }
+
+  .title_box h1 {
+    font-size: 34px;
+  }
+
+  .title_box h3 {
+    font-size: 21px;
+  }
+
+  .sub_title {
+    left: -40px;
+  }
+
+  .sub_title span {
+    font-size: 18px;
+  }
+
+  .work_wrap {
+    width: 90%;
+    height: 40%;
+  }
+
+  .work_wrap .work_text .text_inner {
+    padding: 25px;
+  }
+
+  .work_wrap .work_img {
+    height: 45%;
+  }
+
+  .work_wrap .close_btn {
+    top: 45%;
+  }
+
+  .work_wrap .work_text {
+    height: 55%;
+  }
+
+  .work_wrap .work_text .text_inner {
+    flex-wrap: wrap;
+    padding: 16px 25px;
+  }
+
+  .work_wrap .work_text .text_inner .sub_text {
+    display: none;
+  }
+
+  .work_wrap .work_text .text_inner h3 {
+    margin-bottom: 0;
+  }
+
+  .work_wrap .work_text .text_inner > div {
+    flex: 100%;
+  }
+
+  .portfolio_wrap {
+    margin-top: 50px;
+    transform: translate(0);
+  }
+
+  .portfolio_wrap ul {
+    width: 250px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .skill_wrap {
+    width: 400px;
+  }
+
+  .skill_wrap > ul > li > div {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .skill_wrap > ul > li .text span {
+    font-size: 12px;
+  }
+
+  .skill_wrap > ul > li > div.date {
+    min-width: 80px;
+  }
+
+  .skillbox ul li .skill_txt {
+    font-size: 18px;
+  }
+
+  .skillbox ul {
+    flex-wrap: wrap;
+  }
+
+  .skillbox ul li {
+    flex: 50%;
+    margin-bottom: 10px;
+  }
+
+  .contact_box h2 {
+    font-size: 34px;
+  }
+
+  .contact_box .sub_text {
+    font-size: 18px;
+  }
+
+  .contact_box .contact p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 413px) {
+  .title_box h3 {
+    font-size: 18px;
+  }
+
+  .title_box h1 {
+    font-size: 32px;
+  }
+
+  .portfolio_wrap ul {
+    width: 200px;
+  }
+
+  .intro_text {
+    font-size: 26px;
+  }
+
+  .skill_wrap {
+    width: 320px;
+  }
+  .skillbox ul li .skill_txt {
+    font-size: 16px;
+  }
+
+  .skillbox ul li .level {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+  }
+
+  .skillbox ul li .level .wave {
+    width: 130px;
+    height: 110px;
   }
 }
