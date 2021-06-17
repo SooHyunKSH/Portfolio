@@ -6,7 +6,19 @@ $(document).ready(function () {
         menu: '#gnb',
         lockAnchors: false,
         responsiveWidth: 940,
-        anchors: ['welcome', 'work', 'skill', 'contact']
+        anchors: ['welcome', 'work', 'skill', 'contact'],
+        onLeave: function(index, nextIndex, direction){
+            $("#gnb li").removeClass("on");
+            if(nextIndex == 2){
+                $("#gnb li:nth-of-type(2)").addClass("on");
+            }else if(nextIndex == 3){
+                $("#gnb li:nth-of-type(3)").addClass("on");
+            }else if(nextIndex == 4){
+                $("#gnb li:nth-of-type(4)").addClass("on");
+            }else{
+                $("#gnb li:nth-of-type(1)").addClass("on");
+            }
+        }
     });
 
     //methods
