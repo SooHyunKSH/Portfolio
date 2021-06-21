@@ -351,7 +351,7 @@ h2 {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  z-index: 900;
+  z-index: 9999;
 }
 
 .work_wrap.on {
